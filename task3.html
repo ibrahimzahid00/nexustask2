@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UltraBoost Pro - Responsive Product Landing Page</title>
+    <meta name="description" content="Experience ultimate comfort and performance with UltraBoost Pro running shoes.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #333; background: #f9f9fb; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: inherit; }
+        button { cursor: pointer; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .grid { display: grid; gap: 2rem; }
+        .grid-2 { grid-template-columns: repeat(1, 1fr); }
+        .grid-3 { grid-template-columns: repeat(1, 1fr); }
+
+        header { position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid #eee; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+        .logo { font-weight: 700; font-size: 1.5rem; color: #1a1a1a; }
+        .nav-links { display: none; gap: 2rem; }
+        .nav-links a { font-weight: 600; transition: color .3s; }
+        .nav-links a:hover { color: #0066ff; }
+        .mobile-toggle { display: block; font-size: 1.5rem; background: none; border: none; }
+        .mobile-toggle[aria-expanded="true"] + .nav-links { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: white; padding: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,.1); }
+
+        .hero { padding: 4rem 0; text-align: center; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: .5rem; }
+        .hero p { font-size: 1.1rem; color: #555; max-width: 600px; margin: 0 auto 2rem; }
+        .cta-button { background: #0066ff; color: white; padding: .75rem 2rem; border-radius: 50px; font-weight: 600; transition: background .3s; }
+        .cta-button:hover { background: #0052cc; }
+
+        .gallery { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        .gallery img { border-radius: .75rem; transition: transform .3s; }
+        .gallery img:hover { transform: scale(1.03); }
+
+        .features { padding: 4rem 0; background: white; }
+        .features h2 { text-align: center; margin-bottom: 2rem; font-size: 2rem; }
+        .feature-card { background: #f0f4ff; padding: 1.5rem; border-radius: .75rem; text-align: center; }
+        .feature-card h3 { margin: 1rem 0 .5rem; }
+
+        .testimonials { padding: 4rem 0; }
+        .testimonials h2 { text-align: center; margin-bottom: 2rem; }
+        .testimonial { background: white; padding: 1.5rem; border-radius: .75rem; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+
+        .final-cta { background: #0066ff; color: white; text-align: center; padding: 4rem 0; }
+        .final-cta h2 { font-size: 2rem; margin-bottom: 1rem; }
+        .final-cta .cta-button { background: white; color: #0066ff; }
+
+        footer { background: #1a1a1a; color: #aaa; padding: 3rem 0 1rem; font-size: .9rem; }
+        .footer-grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 2rem; }
+        .footer-col h4 { color: white; margin-bottom: 1rem; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: .5rem; }
+        .copyright { text-align: center; padding-top: 1rem; border-top: 1px solid #333; }
+
+        @media (min-width: 640px) {
+            .grid-2 { grid-template-columns: repeat(2, 1fr); }
+            .hero h1 { font-size: 3rem; }
+        }
+        @media (min-width: 768px) {
+            .nav-links { display: flex; }
+            .mobile-toggle { display: none; }
+            .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (min-width: 1024px) {
+            .hero h1 { font-size: 3.5rem; }
+        }
+
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">UltraBoost<span style="color:#0066ff;">Pro</span></div>
+                <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+                <div class="nav-links">
+                    <a href="#features">Features</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#testimonials">Reviews</a>
+                    <a href="#cta" class="cta-button" style="padding:.5rem 1rem;">Buy Now</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>UltraBoost Pro</h1>
+            <p>Engineered for ultimate comfort, speed, and durability. The perfect running companion for every journey.</p>
+            <a href="#cta" class="cta-button">Add to Cart – $149</a>
+        </div>
+    </section>
+
+   <!-- Product Gallery (CSS Grid) -->
+<section id="gallery" class="gallery container grid">
+    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600" alt="UltraBoost Pro - Front">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600" alt="UltraBoost Pro - Side">
+    <img src="https://images.unsplash.com/photo-1606813902778-03b8d24f3c9d?w=600" alt="UltraBoost Pro - Lifestyle">
+    <img src="https://images.unsplash.com/photo-1528701800489-20be3c2a2c4f?w=600" alt="UltraBoost Pro - On Foot">
+</section>
+
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Why Choose UltraBoost Pro?</h2>
+            <div class="grid grid-3">
+                <div class="feature-card">
+                    <h3>Responsive Cushioning</h3>
+                    <p>Adaptive foam returns energy with every step, reducing fatigue on long runs.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Breathable Mesh</h3>
+                    <p>Engineered knit upper keeps feet cool and dry in any weather.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Durable Outsole</h3>
+                    <p>High-abrasion rubber provides superior grip and longevity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>What Runners Say</h2>
+            <div class="grid grid-2">
+                <div class="testimonial">
+                    <p>"Best shoes I've ever owned. The cushioning is unreal!"</p>
+                    <strong>– Sarah K., Marathon Runner</strong>
+                </div>
+                <div class="testimonial">
+                    <p>"Lightweight yet supportive. Perfect for daily training."</p>
+                    <strong>– Mike L., Trail Enthusiast</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="final-cta">
+        <div class="container">
+            <h2>Ready to Elevate Your Run?</h2>
+            <p>Limited stock – grab yours before they're gone!</p>
+            <button class="cta-button" onclick="alert('Added to cart!')">Add to Cart – $149</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>UltraBoost Pro</h4>
+                    <p>Performance footwear for serious athletes.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Warranty</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2025 UltraBoost Pro. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const toggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        toggle.addEventListener('click', () => {
+            const expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', !expanded);
+            toggle.textContent = expanded ? '☰' : '✕';
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                if (navLinks.style.display === 'flex') {
+                    toggle.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
